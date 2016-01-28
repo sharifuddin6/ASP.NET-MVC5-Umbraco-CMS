@@ -1,0 +1,83 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{ var home = CurrentPage.Site(); }
+	
+@* NAVIGATION BAR *@
+<div class="bs-component">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			@* NAVBAR HOME BUTTON *@
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">RED</a>
+			</div>
+					
+			@* NAVBAR PAGE LIST *@
+			<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
+				@if (home.Children.Any())
+				{
+					@* Get the first page in the children *@
+					var naviLevel = home.Children.First().Level;
+
+					@* Add in level for a CSS hook *@
+					<ul class="nav navbar-nav level-@naviLevel">            
+						@* For each child page under the home node *@
+						@foreach (var childPage in home.Children)
+						{   
+							if (childPage.Children.Any())
+							{                    
+								<li class="dropdown has-child @(childPage.IsAncestorOrSelf(CurrentPage) ? "selected" : null)">
+									@if(childPage.DocumentTypeAlias == "LandingPage") 
+									{
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">@childPage.Name<span class="caret"></span></a>
+										@childPages(childPage.Children)
+									} else {
+										<a href="@childPage.Url">@childPage.Name</a>
+									}
+								</li>
+							} 
+							else
+							{
+								<li class="@(childPage.IsAncestorOrSelf(CurrentPage) ? "selected" : null)">
+									<a href="@childPage.Url">@childPage.Name</a>
+								</li>
+							}            
+						}
+					</ul>
+				}
+			</div>
+		</div>
+	</nav>
+	<div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+</div>
+		
+@helper childPages(dynamic pages)
+{
+	@* Ensure that we have a collection of pages *@
+	if (pages.Any())
+	{
+		@* Get the first page in pages and get the level *@
+		var naviLevel = pages.First().Level;
+
+		@* Add in level for a CSS hook *@
+		<ul class="dropdown-menu sublevel level-@(naviLevel)" role="menu">
+			@foreach (var page in pages)
+			{
+				<li>
+					<a href="@page.Url">@page.Name</a>
+
+					@* if the current page has any children *@
+					@if (page.Children.Any())
+					{                        
+						@* Call our helper to display the children *@
+						@childPages(page.Children)
+					}
+				</li>
+			}
+		</ul>
+	}
+}

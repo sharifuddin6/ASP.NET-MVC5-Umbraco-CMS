@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+@{
+    var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.PageTitle)
+        ? CurrentPage.Name
+        : CurrentPage.PageTitle;
+
+    <h1 class="text-center">@pageTitle</h1>
+    <p>@CurrentPage.BodyText</p>
+}	
+<p>@CurrentPage.Content</p>
+<p>ATLEAST SOME STATIC TEXT HERE.</p>

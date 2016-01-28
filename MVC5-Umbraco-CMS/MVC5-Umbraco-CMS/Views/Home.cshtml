@@ -4,10 +4,10 @@
 }
 
 @{
-	var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.PageTitle)
-		? CurrentPage.Name
-		: CurrentPage.PageTitle;
-	
-	<h1>@pageTitle</h1>
-	<p>@CurrentPage.BodyText</p>
+    var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.PageTitle)
+        ? CurrentPage.Name
+        : CurrentPage.PageTitle;
+
+    <h1 class="text-center">@pageTitle</h1>
+    <p>@CurrentPage.BodyText</p>
 }
