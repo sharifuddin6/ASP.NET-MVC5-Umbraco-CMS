@@ -301,7 +301,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\packages\installed\installedPackages.config" />
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="Config\Lang\cs-CZ.user.xml" />
     <Content Include="Config\Lang\da-DK.user.xml" />
@@ -338,9 +337,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="App_Data\umbraco.config" />
-    <Content Include="App_Data\TEMP\PluginCache\umbraco-plugins.SHARIF-PC.hash" />
-    <Content Include="App_Data\TEMP\PluginCache\umbraco-plugins.SHARIF-PC.list" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -2889,16 +2885,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\cache\" />
-    <Folder Include="App_Data\Logs\" />
-    <Folder Include="App_Data\NuGetBackup\" />
-    <Folder Include="App_Data\packages\created\" />
-    <Folder Include="App_Data\preview\" />
-    <Folder Include="App_Data\TEMP\ClientDependency\" />
-    <Folder Include="App_Data\TEMP\DistCache\" />
-    <Folder Include="App_Data\TEMP\ExamineIndexes\" />
-    <Folder Include="App_Data\TEMP\FileUploads\" />
-    <Folder Include="App_Data\TEMP\Install\" />
     <Folder Include="Controllers\" />
     <Folder Include="media\" />
     <Folder Include="Models\" />

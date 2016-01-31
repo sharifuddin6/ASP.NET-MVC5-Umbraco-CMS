@@ -1,3 +1,13 @@
 .body-content {
 	max-width : 64rem;
 }
+
+.nav-list {
+	text-align: center;
+	float: none !important;
+}
+
+.nav-list > li {
+	display: inline-block !important;
+	float: none !important;
+}
