@@ -7,8 +7,11 @@ namespace MVC5_Umbraco_CMS
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                        "~/Scripts/angular.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                                    "~/Scripts/jquery-2.2.0.min.js"));
+                                    "~/Scripts/jquery-{version}.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
