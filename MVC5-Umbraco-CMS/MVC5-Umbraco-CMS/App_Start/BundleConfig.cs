@@ -9,6 +9,13 @@ namespace MVC5_Umbraco_CMS
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                       "~/Scripts/angular.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular-directives").Include(
+                      "~/Scripts/angular-animate.min.js",
+                      "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular-init").Include(
+                      "~/Scripts/app/angular-init.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                       "~/Scripts/jquery-{version}.js"));
 
@@ -26,9 +33,6 @@ namespace MVC5_Umbraco_CMS
                       "~/Content/css/main.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
-
-            bundles.Add(new ScriptBundle("~/bundles/angular-init").Include(
-                      "~/Scripts/app/angular-init.js"));
         }
     }
 }
