@@ -6,14 +6,14 @@
 }
 
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="app">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 	
-    <title>@CurrentPage.PageTitle - redsite</title>
+    <title>@CurrentPage.Name - redsite</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/angular")
@@ -22,7 +22,7 @@
 </head>
 <body>
 	<header>
-		@{ Html.RenderPartial("MainNavigation"); }
+		@{ Html.RenderPartial("_mainNavigation"); }
 	</header>    
     
     @* BODY CONTENT *@

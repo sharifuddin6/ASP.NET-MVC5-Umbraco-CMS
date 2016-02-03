@@ -353,6 +353,7 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\app\accordion.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -3657,9 +3658,13 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\About.cshtml" />
     <Content Include="Views\Home.cshtml" />
-    <Content Include="Views\Partials\MainNavigation.cshtml" />
     <Content Include="Views\TextPage.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\ContactPage.cshtml" />
+    <Content Include="Views\FeedbackPage.cshtml" />
+    <Content Include="Views\Partials\_commentSection.cshtml" />
+    <Content Include="Views\Partials\_contactForm.cshtml" />
+    <Content Include="Views\Partials\_mainNavigation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
