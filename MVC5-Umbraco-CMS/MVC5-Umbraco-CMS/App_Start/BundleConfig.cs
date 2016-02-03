@@ -32,7 +32,8 @@ namespace MVC5_Umbraco_CMS
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/main.css",
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/css/style.css"));
         }
     }
 }
