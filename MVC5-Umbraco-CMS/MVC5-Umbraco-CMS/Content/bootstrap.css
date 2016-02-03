@@ -274,7 +274,7 @@ th {
 }
 .glyphicon {
   position: relative;
-  top: 1px;
+  top: 5px;
   display: inline-block;
   font-family: 'Glyphicons Halflings';
   font-style: normal;
@@ -3984,7 +3984,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav > li {
   position: relative;
-  display: block;
+  display: inline-block;
 }
 .nav > li > a {
   position: relative;
@@ -4359,11 +4359,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .navbar-nav {
-    float: left;
     margin: 0;
   }
   .navbar-nav > li {
-    float: left;
   }
   .navbar-nav > li > a {
     padding-top: 20px;
@@ -4452,7 +4450,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-nav > li > .dropdown-menu {
-  margin-top: 0;
+  margin-top: 1px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
@@ -6803,6 +6801,7 @@ input:focus,
   line-height: 22px;
   font-weight: 500;
   text-transform: uppercase;
+  text-align: center;
 }
 .nav .open > a,
 .nav .open > a:hover,

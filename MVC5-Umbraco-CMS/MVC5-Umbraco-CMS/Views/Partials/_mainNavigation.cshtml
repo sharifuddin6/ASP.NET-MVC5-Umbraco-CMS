@@ -20,12 +20,9 @@
 			<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false" style="height: 1px;">
 				@if (home.Children.Any())
 				{
-					@* Get the first page in the children *@
 					var naviLevel = home.Children.First().Level;
 
-					@* Add in level for a CSS hook *@
-					<ul class="nav navbar-nav nav-list level-@naviLevel">            
-						@* For each child page under the home node *@
+					<ul class="nav navbar-nav level-@naviLevel">            
 						@foreach (var childPage in home.Children)
 						{   
 							if (childPage.Children.Any())
@@ -34,7 +31,7 @@
 									@if(childPage.DocumentTypeAlias == "LandingPage") 
 									{
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">@childPage.Name<span class="caret"></span></a>
-										@childPages(childPage.Children)
+										@ChildPages(childPage.Children)
 									} else {
 										<a href="@childPage.Url">@childPage.Name</a>
 									}
@@ -55,29 +52,24 @@
 	<div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
 </div>
 		
-@helper childPages(dynamic pages)
+@helper ChildPages(dynamic pages)
 {
-	@* Ensure that we have a collection of pages *@
-	if (pages.Any())
-	{
-		@* Get the first page in pages and get the level *@
-		var naviLevel = pages.First().Level;
+    if (!pages.Any())
+    {
+        return;
+    }
+    var naviLevel = pages.First().Level;
 
-		@* Add in level for a CSS hook *@
-		<ul class="dropdown-menu sublevel level-@(naviLevel)" role="menu">
-			@foreach (var page in pages)
-			{
-				<li>
-					<a href="@page.Url">@page.Name</a>
-
-					@* if the current page has any children *@
-					@if (page.Children.Any())
-					{                        
-						@* Call our helper to display the children *@
-						@childPages(page.Children)
-					}
-				</li>
-			}
-		</ul>
-	}
+    <ul class="dropdown-menu sublevel level-@naviLevel" role="menu">
+        @foreach (var page in pages)
+        {
+            <li>
+                <a href="@page.Url">@page.Name</a>
+                @if (page.Children.Any())
+                {                        
+                    @ChildPages(page.Children)
+                }
+            </li>
+        }
+    </ul>
 }
