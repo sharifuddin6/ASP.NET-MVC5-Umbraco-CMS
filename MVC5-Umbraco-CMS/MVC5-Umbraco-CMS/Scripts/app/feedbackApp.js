@@ -1,15 +1,31 @@
 var app = angular.module("feedbackApp", ["ui.bootstrap"]);
 
 app.controller("feedbackFormController", function ($scope, $http) {
+    $scope.messageSent = false;
     $scope.formData = {};
-    
-    // http post here
 
-    $scope.clicked = function () {
-        alert("clicked");
+    $scope.processForm = function () {
+        $scope.formData.datetime = new Date();
+        $http({
+            method: "POST",
+            url: "/api/feedback",
+            dataType: "json",
+            data: JSON.stringify($scope.formData),
+            headers: { "Content-Type": "application/json" }
+        })
+        .success(function (data) {
+            if (!data.success) {
+                // if not successful, bind errors to error variables
+            } else {
+                // if successful, bind success message to message
+                $scope.messageSent = true;
+            }
+        });
     }
 
-    $scope.oneAtATime = true;
+    $scope.reset = function () {
+        $scope.messageSent = false;
+    }
 });
 
 app.controller("feedbackListController", function($scope, $http) {
@@ -24,7 +40,6 @@ app.controller("feedbackListController", function($scope, $http) {
         } else {
             // if successful, bind success message to message
             $scope.messageData = data;
-            debugger;
         }
     });
 
