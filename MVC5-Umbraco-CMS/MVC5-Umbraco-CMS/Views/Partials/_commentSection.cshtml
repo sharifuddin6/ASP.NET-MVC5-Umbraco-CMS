@@ -2,7 +2,7 @@
 
 <div ng-app="feedbackApp">
     <script src="~/Scripts/app/feedbackApp.js"></script>
-    <div ng-controller="feedbackController">
+    <div ng-controller="feedbackFormController">
         <uib-accordion close-others="oneAtATime">
             <uib-accordion-group is-open="status.open">
                 <uib-accordion-heading>
@@ -39,23 +39,12 @@
         </uib-accordion>
     </div>
 
-    <div class="bs-component">
+    <div ng-controller="feedbackListController" class="bs-component">
         <div class="list-group">
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Name [email@example.com]</h4>
-                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Name [email@example.com]</h4>
-                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Name [email@example.com]</h4>
-                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Name [email@example.com]</h4>
-                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            <a ng-repeat="x	in messageData" href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ x.Name }} [{{ x.Email }}]</h4>
+                <p class="list-group-item-text">{{ x.Message }}</p>
+                <h6>{{ x.DateTime | date:'HH:mm:ss dd-MM-yyyy' }}</h6>
             </a>
         </div>
         <ul class="pagination">
